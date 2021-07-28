@@ -1,0 +1,114 @@
+h1, h2, p {
+    margin: 0;
+}
+.card{
+    height: 200px;
+    width: 300px;
+
+    margin: 20px;
+
+    display: flex;
+    justify-content: center;
+
+    border-radius: 0.3rem;
+}
+
+.card:hover{
+    transform: scale(1.05);
+    
+}
+
+
+.card_name{
+    font-size: 29px;
+    font-weight: 400;
+
+    text-align: center;
+
+    margin-top: 20px;
+}
+
+.card_name span{
+    font-size: 19px;
+    font-weight: 400;
+}
+
+.card_small{
+    font-size: 40px;
+    font-weight: 800;
+
+    margin: 0;
+
+    text-shadow: 2px 2px rgb(94, 83, 83);
+    
+
+    text-align: center;
+}
+
+.card_1{
+    background-color: rgb(77,112,194);
+}
+
+.card_2{
+    background-color: rgb(41,146,62);
+}
+
+.card_3{
+    background-color: rgb(188,169,45);
+}
+
+.card_4{
+    background-color: rgb(214,102,28);
+}
+
+.card_5{
+    background-color: rgb(55,93,179);
+}
+
+.card_6{
+    background-color: rgb(158,143,80);
+}
+
+@media (max-width:810px){
+        
+    .card{
+        height: 200px;
+        width: 300px;
+    
+        margin: 10px;
+    }
+}
+
+@media (max-width:760px){
+        
+    .card{
+        height: 100px;
+        width: 300px;
+    
+        margin: 5px;
+    }
+
+    
+    .card_name{
+        font-size: 15px;
+        font-weight: 400;
+
+        text-align: center;
+
+        margin-top: 20px;
+    }
+
+    .card_name span{
+        font-size: 10px;
+        font-weight: 400;
+    }
+
+    .card_small{
+        font-size: 25px;
+        font-weight: 800;
+        text-shadow: 2px 2px rgb(94, 83, 83);
+        
+
+        text-align: center;
+    }
+}
