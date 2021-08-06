@@ -1,25 +1,37 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import { getCovidData } from '../../container/dataManager';
 import Card from '../card/card';
-import './covid.css';
+import Heading from '../heading/heading';
+import Loader from '../loader/loader';
+import '../covid/covid.css'
 
-const Covid = () => {
+const Covid = (props) => {
+  const location = props.location;
+  const [loader, setLoader] = useState(true)
+  const [data, setData] = useState();
+  const getData = async () => {
+    const actucalData = await getCovidData(); // API CALL
+    if (location === 'india') {
+      setData(actucalData.statewise[0]);
+    } else {
+      setData(actucalData.statewise);
+    }
+    setLoader(false)
+  };
 
-    return (
-        <>
-          <section>
+  useEffect(() => {
+    getData();
+  }, []);
 
-            <div className='heading_container'>
-                <h1  className='live'>🔴 LIVE </h1>
-                <h2>COVID-19  CORONAVIRUS </h2>
-            </div>
-
-            <div className='card_list'>
-                <Card />
-            </div>
-          </section>
-
-        </>
-    )
-}
+  
+  return loader ? <Loader></Loader> : (
+    <>
+      <section>
+        <Heading></Heading>
+        <Card data={data} location={location} ></Card>
+      </section>
+    </>
+  );
+};
 
 export default Covid;
